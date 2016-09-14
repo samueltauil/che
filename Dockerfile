@@ -53,6 +53,6 @@ ADD assembly/assembly-main/target/eclipse-che-*/eclipse-che-* /home/user/che/
 
 ENV CHE_HOME /home/user/che
 
-ENTRYPOINT [ "/home/user/che/bin/che.sh", "-c" ]
+ENTRYPOINT [ "/home/user/che/bin/che.sh start", "-c" ]
 
 CMD [ "run" ]
