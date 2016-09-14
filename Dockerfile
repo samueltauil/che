@@ -20,8 +20,8 @@
 #             -v /home/user/che/storage:/home/user/che/storage \
 #             codenvy/che-server
 #           
-#FROM alpine:3.4
-FROM maven:alpine
+FROM alpine:3.4
+#FROM maven:alpine  used to migrate to pod
 
 ENV LANG=C.UTF-8 \
     JAVA_HOME=/usr/lib/jvm/default-jvm/jre \
@@ -44,13 +44,14 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
     addgroup -g 50 -S docker4mac && \
     adduser user docker4mac && \
     echo "%root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    rm -rf /tmp/* /var/cache/apk/* && \
-    mvn clean install
+    rm -rf /tmp/* /var/cache/apk/* 
+    
 
 EXPOSE 8000 8080
 
 USER user
 
+# must change that to build the fat jar before build the image
 ADD assembly/assembly-main/target/eclipse-che-*/eclipse-che-* /home/user/che/
 
 ENV CHE_HOME /home/user/che
