@@ -43,7 +43,8 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
     addgroup -g 50 -S docker4mac && \
     adduser user docker4mac && \
     echo "%root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    rm -rf /tmp/* /var/cache/apk/*
+    rm -rf /tmp/* /var/cache/apk/* && \
+    mvn clean install
 
 EXPOSE 8000 8080
 
