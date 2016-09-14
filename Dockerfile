@@ -20,7 +20,8 @@
 #             -v /home/user/che/storage:/home/user/che/storage \
 #             codenvy/che-server
 #           
-FROM alpine:3.4
+#FROM alpine:3.4
+FROM maven:alpine
 
 ENV LANG=C.UTF-8 \
     JAVA_HOME=/usr/lib/jvm/default-jvm/jre \
