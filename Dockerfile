@@ -54,11 +54,12 @@ USER user
 # must change that to build the fat jar before build the image
 # ADD assembly/assembly-main/target/eclipse-che-*/eclipse-che-* /home/user/che/
 RUN curl https://dl.dropboxusercontent.com/u/7034677/eclipse-che.tar.gz -o /tmp/eclipse-che.tar.gz
-ENV CHE_HOME /home/user/che
 RUN tar -xzvf /tmp/eclipse-che.tar.gz -C /home/user/che
 RUN rm /tmp/eclipse-che.tar.gz
 
-#ENV CHE_HOME /home/user/che
+#ADD https://dl.dropboxusercontent.com/u/7034677/eclipse-che.tar.gz /home/user/che
+
+ENV CHE_HOME /home/user/che
 
 ENTRYPOINT [ "/home/user/che/bin/che.sh start", "-c" ]
 
