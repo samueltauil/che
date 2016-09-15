@@ -44,8 +44,8 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
     addgroup -g 50 -S docker4mac && \
     adduser user docker4mac && \
     echo "%root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    rm -rf /tmp/* /var/cache/apk/* 
-    
+    rm -rf /tmp/* /var/cache/apk/* && \
+    curl https://dl.dropboxusercontent.com/u/7034677/eclipse-che.tar.gz -o /tmp/eclipse-che.tar.gz 
 
 EXPOSE 8000 8080
 
@@ -53,9 +53,9 @@ USER user
 
 # must change that to build the fat jar before build the image
 # ADD assembly/assembly-main/target/eclipse-che-*/eclipse-che-* /home/user/che/
-RUN curl https://dl.dropboxusercontent.com/u/7034677/eclipse-che.tar.gz -o /tmp/eclipse-che.tar.gz
-RUN tar -xzvf /tmp/eclipse-che.tar.gz -C /home/user/che
-RUN rm /tmp/eclipse-che.tar.gz
+#RUN curl https://dl.dropboxusercontent.com/u/7034677/eclipse-che.tar.gz -o /tmp/eclipse-che.tar.gz
+RUN tar -xzvf /tmp/eclipse-che.tar.gz -C /home/user/che && \
+    rm /tmp/eclipse-che.tar.gz
 
 #ADD https://dl.dropboxusercontent.com/u/7034677/eclipse-che.tar.gz /home/user/che
 
