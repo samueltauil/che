@@ -61,6 +61,6 @@ ADD https://dl.dropboxusercontent.com/u/7034677/eclipse-che.tar.gz /home/user/ch
 
 ENV CHE_HOME /home/user/che
 
-ENTRYPOINT [ "/home/user/che/bin/che.sh start", "-c" ]
+ENTRYPOINT [ "/home/user/che/bin/che.sh", "-c" ]
 
-CMD [ "run" ]
+CMD [ "start" ]
