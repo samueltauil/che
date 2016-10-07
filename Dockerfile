@@ -48,7 +48,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
     #curl https://dl.dropboxusercontent.com/u/7034677/eclipse-che.tar.gz -o /tmp/eclipse-che.tar.gz 
 
 EXPOSE 8000 8080
-
+VOLUME /var/run/docker.sock
 USER user
 
 # must change that to build the fat jar before build the image
